@@ -8,6 +8,7 @@
  */
 
 /** @type {Item[]} */
+
 const inventory = [
   { id: 1, name: "apple", price: 1.75, category: "fruit", quantity: 100 },
   { id: 2, name: "banana", price: 0.25, category: "fruit", quantity: 137 },
@@ -25,17 +26,29 @@ const inventory = [
  * Prints out the name of each item in the given array.
  * @param {Item[]} items - array of items
  */
-function logNames(items) {
-  // TODO: use `forEach`
+
+function logNames() {
+  const productList = inventory.map((product) => {
+    return product.name;
+  });
+  console.log(productList);
+  return productList;
 }
+
+const productListArray = logNames();
 
 /**
  * @param {Item[]} items - array of items
  * @returns {string[]} an array of item names in all uppercase
  */
-function getUppercaseNames(items) {
-  // TODO: use `map`
+function getUppercaseNames() {
+  const upperList = productListArray.map((makeUpper) => {
+    return makeUpper.toUpperCase();
+  });
+  return upperList;
 }
+
+getUppercaseNames();
 
 /**
  * @param {Item[]} items - array of items
