@@ -55,9 +55,12 @@ getUppercaseNames();
  * @param {number} id - id of the item to find
  * @returns {Item} - the item in `items` with the given `id`
  */
-function getItemById(items, id) {
-  // TODO: use `find`
+function getItemById(item, id) {
+  const foundItem = inventory.find((item) => item.id === id);
+  return foundItem;
 }
+
+//getItemById(2);
 
 /**
  * @param {Item[]} items - array of items
@@ -119,4 +122,4 @@ console.log(
 
 const category = prompt("Enter a category you would like to see:", "fruit");
 console.log(`The items in the ${category} category are:`);
-console.log(getItemsByCategory(inventory, category));
+console.log(getItemsByCategory(inventory, category)); 
