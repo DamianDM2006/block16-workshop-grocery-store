@@ -84,6 +84,9 @@ function getItemPriceByName(items, name) {
  * @returns {Item[]} array of items that belong to the given `category`
  */
 function getItemsByCategory(items, category) {
+  const sortedByCategory = inventory.filter((type) => type.category === category);
+  return sortedByCategory;
+
   // TODO: use `filter`
 }
 
