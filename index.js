@@ -87,7 +87,6 @@ function getItemsByCategory(items, category) {
   const sortedByCategory = inventory.filter((type) => type.category === category);
   return sortedByCategory;
 
-  // TODO: use `filter`
 }
 
 /**
@@ -95,8 +94,14 @@ function getItemsByCategory(items, category) {
  * @returns {number} the total quantity of all items
  */
 function countItems(items) {
-  // TODO: use `reduce`
+  const quantitiesOf = inventory.map(amounts => amounts.quantity);
+  const totalOfAll = quantitiesOf.reduce(
+    (accumulator, currentVal) => accumulator + currentVal, 0
+  );
+  return totalOfAll;
 }
+
+countItems(inventory);
 
 /**
  * @param {Item[]} items - array of items
