@@ -66,14 +66,9 @@ function getItemById(item, id) {
  * @returns {number} the price of the item named `name` if found
  */
 function getItemPriceByName(items, name) {
-  
-  for(let i = 0; i < inventory.length; i++){
-    if(inventory[i].name === name) {
-
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].name === name) {
       return inventory[i].price;
-
-      /* console.log(name);
-      console.log(`$ ${inventory[i].price}`); */
     }
   }
 }
@@ -84,9 +79,10 @@ function getItemPriceByName(items, name) {
  * @returns {Item[]} array of items that belong to the given `category`
  */
 function getItemsByCategory(items, category) {
-  const sortedByCategory = inventory.filter((type) => type.category === category);
+  const sortedByCategory = inventory.filter(
+    (type) => type.category === category
+  );
   return sortedByCategory;
-
 }
 
 /**
@@ -94,21 +90,25 @@ function getItemsByCategory(items, category) {
  * @returns {number} the total quantity of all items
  */
 function countItems(items) {
-  const quantitiesOf = inventory.map(amounts => amounts.quantity);
+  const quantitiesOf = inventory.map((amounts) => amounts.quantity);
   const totalOfAll = quantitiesOf.reduce(
-    (accumulator, currentVal) => accumulator + currentVal, 0
+    (accumulator, currentVal) => accumulator + currentVal,
+    0
   );
   return totalOfAll;
 }
-
-countItems(inventory);
 
 /**
  * @param {Item[]} items - array of items
  * @returns {number} the cost of all given items
  */
 function getTotalPrice(items) {
-  // TODO: use `reduce`
+  const pricesOfAll = inventory.map((costs) => costs.quantity * costs.price);
+  const totalPrice = pricesOfAll.reduce(
+    (accumulator, currentPrice) => accumulator + currentPrice,
+    0
+  );
+  return totalPrice;
 }
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
