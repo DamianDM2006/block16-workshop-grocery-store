@@ -55,8 +55,9 @@ getUppercaseNames();
  * @param {number} id - id of the item to find
  * @returns {Item} - the item in `items` with the given `id`
  */
-function getItemById(items, id) {
-  // TODO: use `find`
+function getItemById(item, id) {
+  const foundItem = inventory.find((item) => item.id === id);
+  return foundItem;
 }
 
 /**
@@ -65,7 +66,16 @@ function getItemById(items, id) {
  * @returns {number} the price of the item named `name` if found
  */
 function getItemPriceByName(items, name) {
-  // TODO: use a loop!
+  
+  for(let i = 0; i < inventory.length; i++){
+    if(inventory[i].name === name) {
+
+      return inventory[i].price;
+
+      /* console.log(name);
+      console.log(`$ ${inventory[i].price}`); */
+    }
+  }
 }
 
 /**
